@@ -1,0 +1,90 @@
+﻿@{
+    ViewData["Title"] = "Home Page";
+}
+<header data-bs-theme="dark">
+    <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Online Film</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarCollapse">
+                <ul class="navbar-nav me-auto mb-2 mb-md-0">
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-controller="Film" asp-action="AddEdit">New Film</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" asp-controller="Film" asp-action="FilmIndex">Film List</a>
+                    </li>
+
+                </ul>
+
+                <div class="nav-scroller py-1 mb-3 border-bottom">
+                    <nav class="nav nav-underline justify-content-between">
+
+                        <a style="color:white" class="nav-item nav-link link-body-emphasis" asp-controller="" asp-action=" ">Sign in </a>
+                        <a style="color:white" class="nav-item nav-link link-body-emphasis" asp-controller=" " asp-action="">Admin</a>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </nav>
+</header>
+<main>
+
+    <section class="py-5 text-center container">
+        <div class="row py-lg-5">
+            <div class="col-lg-6 col-md-8 mx-auto">
+                <h1 class="fw-light">Films</h1>
+                <p class="lead text-body-secondary">Something short and leading about the collection below—its contents, the creator, etc. Make it short and sweet, but not too short so folks don’t simply skip over it entirely.</p>
+
+            </div>
+        </div>
+    </section>
+
+    <div class="album py-5 bg-body-tertiary">
+        <div class="container">
+
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+                <div class="col">
+                    <div class="card shadow-sm">
+                        <img src="/films/film1.jpg" class="bd-placeholder-img card-img-top" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false">
+
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+
+                        <img src="/films/2.jpg" class="bd-placeholder-img card-img-top" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+
+                        <img src="/films/3.jpg" class="bd-placeholder-img card-img-top" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect>
+                    </div>
+                </div> <div class="col">
+                    <div class="card shadow-sm">
+
+                        <img src="/films/4.jpg" class="bd-placeholder-img card-img-top" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect>
+                    </div>
+                </div> <div class="col">
+                    <div class="card shadow-sm">
+
+                        <img src="/films/6.jpg" class="bd-placeholder-img card-img-top" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect>
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="card shadow-sm">
+
+                        <img src="/films/wak.jpg" class="bd-placeholder-img card-img-top" aria-label="Placeholder: Thumbnail" preserveAspectRatio="xMidYMid slice" focusable="false"><title>Placeholder</title><rect width="100%" height="100%" fill="#55595c"></rect>
+                    </div>
+                </div>
+            </div>
+
+
+
+        </div>
+    </div>
+
+</main>

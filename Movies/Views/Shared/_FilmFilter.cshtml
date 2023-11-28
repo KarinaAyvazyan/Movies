@@ -1,0 +1,28 @@
+﻿@using Movies.Enums;
+@using Movies.ViewModels
+@using Movies.ViewModels.Films;
+@model FilmFilterModel
+<form method="get">
+
+  
+        <label>
+         Title
+        <input asp-for="Title" />
+        </label>
+  
+ 
+         <label>
+          Description
+        <input asp-for="Description" />
+        </label>
+
+       @* <label>
+           Email
+        <input asp-for="Email"/>
+        </label>
+         <label>
+            Id Number
+        <input asp-for="IdNumber" />
+        </label>*@
+        <button type="submit">Filter</button>
+    </form>

@@ -1,0 +1,88 @@
+﻿@using Movies.ViewModels.Films
+@using Movies.Enums;
+
+@model FilmAddEditViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>AddEdit</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+   
+</head>
+<body class="background" >
+   
+    
+    <div class="col-md-10 mx-auto col-lg-5" >
+        @if (ViewBag.Error != null)
+        {
+            <span style="color:red"> @ViewBag.Error</span>
+        }
+        <form  class="p-1 p-md-2 border rounded-1 bg-body-tertiary" method="post">
+           <h5   class="title"  > New film</h5>
+            <input type="hidden" asp-for="Id" />
+            <div class ="form-floating mb-3">
+                <label asp-for="Title">Title</label><hr />
+                <input asp-for="Title" class="form-control" />
+
+            </div>
+            <div class="form-floating mb-3">
+                <label asp-for="Description">Description</label><hr />
+                <input asp-for="Description" class="form-control" />
+
+            </div>
+            <div class="form-floating mb-3">
+                <label asp-for="DOB">Created Year</label><hr />
+                <input asp-for="DOB" class="form-control" />
+
+            </div>
+            <div class="form-floating mb-3">
+                <label asp-for="FilmGenre"></label><hr />
+                <select asp-for="FilmGenre" asp-items="Html.GetEnumSelectList<GenreEnum>()" class="form-control">
+                <option>Please select genre</option>
+            </select>
+            </div>
+
+            <div class="form-floating mb-3">
+                <label asp-for="DirectorId">DirectorId</label><hr />
+                <input asp-for="DirectorId" class="form-control" />
+
+            </div>
+           
+            <div class="form-floating mb-3"> 
+                <input type="file" name="Image" class="form-control" /><hr />
+                </div>
+                
+            <button class="w-100 btn btn-lg btn-primary" style="background-color:steelblue" type="submit">@(Model.Id == 0 ? "Add" : "Update")</button>
+         
+       
+        </form>
+    </div>
+  
+    
+     
+   
+   
+            @*<label>
+               Book Publisher:
+                <select asp-for="PublisherId">
+                    <option>--Select--</option>
+                    @foreach (PublisherViewModel item in ViewBag.Publishers)
+                    {
+                        <option value="@item.Id">@item.Name</option>
+                    }
+                </select>
+            </label>*@
+       
+    
+   
+
+
+</body>
+</html>
