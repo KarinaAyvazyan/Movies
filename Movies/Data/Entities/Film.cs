@@ -14,6 +14,6 @@ namespace Movies.Data.Entities
         [ForeignKey("Director")] 
         public int DirectorId { get; set; }
         public Director Director { get; set; }  
-        public string Image { get;set; }
+     public string Image { get;set; }
     }
 }

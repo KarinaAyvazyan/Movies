@@ -3,7 +3,8 @@ using Movies.Data;
 using Movies.Data.Repositories.Interfaces;
 using Movies.Services;
 using Movies.Services.Interfaces;
-using OnlineBook.Data.Repositories;
+using Movies.Data.Repositories;
+using Movies.Services;
 
 namespace Movies
 {
@@ -17,7 +18,9 @@ namespace Movies
             builder.Services.AddDbContext<FilmDataContext>
            (opt => opt.UseSqlServer(builder.Configuration.GetConnectionString("MyFilmDB")));
             builder.Services.AddScoped<IFilmRepository, FilmRepository>();
+            builder.Services.AddScoped<IUserRepository, UserRepository>();
             builder.Services.AddScoped<IFilmService, FilmService>();
+            builder.Services.AddScoped<IUserService, UserService>();   
 
 
             // Add services to the container.

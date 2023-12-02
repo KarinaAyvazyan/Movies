@@ -24,7 +24,7 @@ namespace Movies.Services
                FilmGenre=model.FilmGenre ,
                DirectorId=model.DirectorId ,
                Image=model.Image,
-               DOB = model.DOB,
+                DOB = model.DOB,
             //   FileName = model.FileName ,
         
                
@@ -58,10 +58,10 @@ namespace Movies.Services
                 Title = entity.Title,
                 Description = entity.Description,
                 FilmGenre = entity.FilmGenre,
-                Id=entity.Id,
+                Id = entity.Id,
                 DirectorId = entity.DirectorId,
                 Image = entity.Image,
-                DOB=entity.DOB
+                DOB = entity.DOB,
                 //  FileName = entity.FileName,
 
             };

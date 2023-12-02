@@ -2,7 +2,7 @@
 using Movies.Data.Entities;
 using Movies.Data.Repositories.Interfaces;
 
-namespace OnlineBook.Data.Repositories
+namespace Movies.Data.Repositories
 {
     public class AdminRepository:IAdminRepository
     {

@@ -1,0 +1,69 @@
+﻿@using Movies.ViewModels.Users;
+@model UserViewModel
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+   
+    <title>Register</title>
+
+   
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+</head>
+<body>
+@*
+ <h1>@Html.ValidationSummary()</h1>*@
+    <div class="col-md-10 mx-auto col-lg-5">
+    <main class="form-signin w-1 m-auto">
+
+             
+                <form class="p-10 p-md-1 border rounded-1 bg-body-tertiary" method="post">
+                    <h5 class="title"> Sign up</h5>
+                
+                    <div class="form-floating mb-3">
+                        <label asp-for="FirstName">First Name</label><hr />
+                        <input asp-for="FirstName" class="form-control" />
+
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label asp-for="LastName">Last Name</label><hr />
+                        <input asp-for="LastName" class="form-control" />
+
+                    </div>
+               
+                    <div class="form-floating mb-3">
+                        <label asp-for="DOB">DOB</label><hr />
+                        <input asp-for="DOB" class="form-control" />
+
+                    </div>
+                    <div class="form-floating mb-3">
+                        <label asp-for="Email">Email</label><hr />
+                    <input asp-for="Email" class="form-control"  placeholder="name@gmail.com" />
+
+                    </div>
+
+                    <div class="form-floating mb-3">
+                        <label asp-for="Password"  >Password</label><hr />
+                    
+                        <input asp-for="Password" type="password"  class="form-control" />
+
+           </div>
+
+                    
+                    <button class="w-100 btn btn-lg btn-primary" style="background-color:steelblue" type="submit">SIGN UP
+
+                    </button>
+                   
+                </form>
+        
+
+        </main>
+    </div>
+</body>
+</html>
