@@ -3,6 +3,7 @@ using Movies.Services.Interfaces;
 using Movies.ViewModels.Users;
 using Movies.Services;
 using Movies.ViewModels.Films;
+using System;
 
 namespace Movies.Controllers
 {
@@ -28,16 +29,35 @@ namespace Movies.Controllers
         public IActionResult Register(UserViewModel model)
         {
             {
+                if (ModelState.IsValid)
+                {
 
-                if (model.Id > 0)
-                {
-                    _userService.Update(model);
-                    return View(model);
-                }
-                else
-                {
-                    _userService.Add(model);
-                }
+
+                    if (model.Id > 0)
+                    {
+
+                        {
+                            _userService.Update(model);
+                            return View(model);
+                        }
+                    }
+                   
+                } else { _userService.Add(model);return View(model); }
+               
+                //if (ModelState.IsValid)
+                //    return Content($"{model.Password}");
+
+                //else
+                //    return View(model);
+                //if (model.Id > 0)
+                //{
+                //    _userService.Update(model);
+                //    return View(model);
+                //}
+                //else
+                //{
+                //    _userService.Add(model);
+                //}
                 return RedirectToAction("Index","Home");
             }
         }

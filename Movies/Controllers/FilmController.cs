@@ -5,6 +5,7 @@ using Movies.Services.Interfaces;
 
 using Movies.Data;
 using Movies.ViewModels.Films;
+using Microsoft.AspNetCore.Razor.Language.Intermediate;
 
 namespace Movies.Controllers
 {
@@ -15,7 +16,7 @@ namespace Movies.Controllers
         private readonly IFilmService _filmService;
         public FilmController(IFilmService filmService, IWebHostEnvironment webHostEnvironment)
         {
-          _filmService = filmService;   
+            _filmService = filmService;   
 
             _webHostEnvironment = webHostEnvironment;
         }
@@ -34,18 +35,29 @@ namespace Movies.Controllers
         public IActionResult AddEdit(FilmAddEditViewModel model, IFormFile Image)
         {
 
-
-            if (model.Id > 0)
+            if (Image != null)
             {
-                _filmService.Update(model);
-            }
-            else
-            {
-                _filmService.Add(model);
-            }
 
-   
+                var filename = model.Id.ToString();
+                string path = _webHostEnvironment.WebRootPath + $"/Files/{Image?.FileName}";
+                using var stream = new FileStream(path, FileMode.Create);
 
+                //model.FileName = Path.GetFileName(path);    
+                Image.CopyTo(stream);
+                model.FileName = Image.FileName;
+            }
+            
+                if (model.Id > 0)
+                {
+                    _filmService.Update(model);
+                }
+                else
+                {
+                    _filmService.Add(model);
+                }
+
+            
+            
      
             return RedirectToAction("FilmIndex");
         }

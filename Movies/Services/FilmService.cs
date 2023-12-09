@@ -23,27 +23,30 @@ namespace Movies.Services
                Description = model.Description, 
                FilmGenre=model.FilmGenre ,
                DirectorId=model.DirectorId ,
-               Image=model.Image,
-                DOB = model.DOB,
-            //   FileName = model.FileName ,
+               //Image=model.Image,
+               DOB = model.DOB,
+           FileName = model.FileName ,
         
-               
+              
             };
-
+            
            _filmRepository.Add(film);
+           _filmRepository.SaveChanges();
+            
               }
 
- 
+
 
         public List<Film> GetByFilter(FilmFilterModel model)
         {
 
-            var films=_filmRepository.GetAll().Where(u=>model.Title==null || u.Title.ToLower().Contains(model.Title.ToLower())  
-          //  ( u.Description.ToLower()==model.Description.ToLower())
+            var films = _filmRepository.GetAll()
+                .Where(u => model.Title == null || u.Title.ToLower().StartsWith(model.Title.ToLower())
+                && (model.Description ==null|| u.Description.Contains(model.Description)) 
+          
           ).ToList();   
 
           
-               //  && (model.DOB==null || u.DOB==model.DOB )
               // && (u.FilmGenre ==model.FilmGenre)))
            
             return films;
@@ -60,9 +63,9 @@ namespace Movies.Services
                 FilmGenre = entity.FilmGenre,
                 Id = entity.Id,
                 DirectorId = entity.DirectorId,
-                Image = entity.Image,
+            //  Image = entity.Image,
                 DOB = entity.DOB,
-                //  FileName = entity.FileName,
+            FileName = entity.FileName,
 
             };
         }
@@ -79,11 +82,11 @@ namespace Movies.Services
             entity.Title=model.Title;
             entity.Description=model.Description;
             entity.FilmGenre =model.FilmGenre;
-            entity.Image = model.Image;
+          //  entity.Image = model.Image;
             entity.DOB = model.DOB;
           
             entity.DirectorId = model.DirectorId;
-           // entity.FileName = model.FileName;   
+         entity.FileName = model.FileName;   
       _filmRepository.SaveChanges();
         }
         private void CheckTitle(FilmAddEditViewModel model)

@@ -4,7 +4,7 @@ using Movies.Data.Repositories.Interfaces;
 using Movies.Services;
 using Movies.Services.Interfaces;
 using Movies.Data.Repositories;
-using Movies.Services;
+
 
 namespace Movies
 {
