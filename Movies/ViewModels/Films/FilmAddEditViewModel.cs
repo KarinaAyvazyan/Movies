@@ -1,6 +1,7 @@
 ﻿using Microsoft.CodeAnalysis.CSharp.Syntax;
 using Movies.Data.Entities;
 using Movies.Enums;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Movies.ViewModels.Films
@@ -13,8 +14,10 @@ namespace Movies.ViewModels.Films
         public GenreEnum FilmGenre { get; set; }
         public int DirectorId { get; set; }
         // public string Image { get; set; }
-        
-        public DateTime? DOB { get; set; }  
+
+        [DataType(DataType.Date)]
+        [DisplayFormat(DataFormatString = "{0:'MM'/'yyyy}")]
+        public DateTime? DOB { get; set; } 
        
         public string FileName { get; set; }
         //public int PublisherId { get; set; }

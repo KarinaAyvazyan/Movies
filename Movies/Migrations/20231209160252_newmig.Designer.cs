@@ -12,8 +12,8 @@ using Movies.Data;
 namespace Movies.Migrations
 {
     [DbContext(typeof(FilmDataContext))]
-    [Migration("20231128085050_init")]
-    partial class init
+    [Migration("20231209160252_newmig")]
+    partial class newmig
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -32,6 +32,10 @@ namespace Movies.Migrations
                         .HasColumnType("int");
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Name")
                         .IsRequired()
@@ -84,12 +88,12 @@ namespace Movies.Migrations
                     b.Property<int>("DirectorId")
                         .HasColumnType("int");
 
-                    b.Property<int>("FilmGenre")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Image")
+                    b.Property<string>("FileName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("FilmGenre")
+                        .HasColumnType("int");
 
                     b.Property<string>("Title")
                         .IsRequired()
@@ -110,11 +114,17 @@ namespace Movies.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<DateTime>("DOB")
+                        .HasColumnType("datetime2");
+
                     b.Property<string>("Email")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FirstName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Name")
+                    b.Property<string>("LastName")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 

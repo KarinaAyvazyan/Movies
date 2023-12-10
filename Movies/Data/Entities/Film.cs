@@ -1,4 +1,5 @@
 ﻿using Movies.Enums;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
 namespace Movies.Data.Entities
@@ -9,6 +10,7 @@ namespace Movies.Data.Entities
         public string Title { get; set; }
         public string? Description { get; set; }
         public GenreEnum FilmGenre { get; set; }
+   
         public DateTime? DOB { get; set; } 
      
         [ForeignKey("Director")] 
