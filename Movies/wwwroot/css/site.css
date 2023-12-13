@@ -27,14 +27,33 @@ table {
 body {
   margin-bottom: 60px;
 }
-    body.background {
-        background-image: url("../background/pi.webp");
-        background-position: center;
-    }
+.backgroundReg {
+    background-image: url("/background/pi.webp");
+    background-position: center;
+}
+body.background {
+    background-image: url("../background/pi.webp");
+    background-position: center;
+
+ 
+   /*// opacity: 200;*/
+}
+  
+       
 
 .title {
     text-align: center;
 }
+.fw-light{
+    background-image:url(/background/1.jpg);
+    border-bottom-width:medium 
+
+      
+           }
+/*.regLogin {
+    background-color: #f0efe9;
+}*/
+
 
 
 

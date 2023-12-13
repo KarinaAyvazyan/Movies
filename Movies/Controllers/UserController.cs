@@ -4,6 +4,9 @@ using Movies.ViewModels.Users;
 using Movies.Services;
 using Movies.ViewModels.Films;
 using System;
+using Movies.ViewModels;
+using Movies.Data.Entities;
+using Microsoft.AspNetCore.Mvc.ModelBinding.Validation;
 
 namespace Movies.Controllers
 {
@@ -18,6 +21,27 @@ namespace Movies.Controllers
         {
             return View();
         }
+
+        [HttpGet]
+        public IActionResult Login()
+        {
+            return View();
+        }
+        [HttpPost]
+        public IActionResult Login(LoginViewModel model)
+        {
+         
+            if (_userService.Login(model))
+            {
+       
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                ViewBag.Message = "Something is wrong ! ";
+            }
+            return View();
+        }
         [HttpGet]
         public IActionResult Register( int? id)
         {
@@ -28,38 +52,28 @@ namespace Movies.Controllers
         [HttpPost]
         public IActionResult Register(UserViewModel model)
         {
+            if(model.Id==0)
             {
-                if (ModelState.IsValid)
-                {
+            
+
+                    _userService.Add(model);
 
 
-                    if (model.Id > 0)
-                    {
 
-                        {
-                            _userService.Update(model);
-                            return View(model);
-                        }
-                    }
-                   
-                } else { _userService.Add(model);return View(model); }
-               
-                //if (ModelState.IsValid)
-                //    return Content($"{model.Password}");
+          //   return View( model);
 
-                //else
-                //    return View(model);
-                //if (model.Id > 0)
-                //{
-                //    _userService.Update(model);
-                //    return View(model);
-                //}
-                //else
-                //{
-                //    _userService.Add(model);
-                //}
-                return RedirectToAction("Index","Home");
+
             }
+            else
+            {
+                _userService.Update(model); 
+            }
+
+
+
+
+           return RedirectToAction("Index","Home");
+
+        }
         }
     }
-}

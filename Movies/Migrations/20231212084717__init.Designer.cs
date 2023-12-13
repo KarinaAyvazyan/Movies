@@ -12,8 +12,8 @@ using Movies.Data;
 namespace Movies.Migrations
 {
     [DbContext(typeof(FilmDataContext))]
-    [Migration("20231205094023_addColumn")]
-    partial class addColumn
+    [Migration("20231212084717__init")]
+    partial class _init
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -89,6 +89,7 @@ namespace Movies.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("FileName")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("FilmGenre")
@@ -117,6 +118,7 @@ namespace Movies.Migrations
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Email")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("FirstName")

@@ -1,4 +1,5 @@
-﻿using Movies.ViewModels.Users;
+﻿using Movies.ViewModels;
+using Movies.ViewModels.Users;
 
 namespace Movies.Services.Interfaces
 {

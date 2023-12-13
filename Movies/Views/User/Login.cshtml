@@ -1,0 +1,55 @@
+﻿@using Movies.ViewModels
+@model LoginViewModel 
+
+@{
+    Layout = null;
+    
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+
+</head>
+<body class="regLogin" >
+    <div class="col-md-10 mx-auto col-lg-5" >
+        <main class="form-signin w-1 m-auto">
+
+
+            <form class="p-10 p-md-1 border rounded-1 bg-body-tertiary" method="post">
+                <h5 class="title"> Sign in</h5>
+               
+
+                <div class="form-floating mb-3">
+                    <label asp-for="Email"> Email</label><hr />
+                    <input asp-for="Email" class="form-control" />
+
+                </div>
+                <div class="form-floating mb-3">
+                    <label asp-for="Password">Password</label><hr />
+                    <input asp-for="Password"  type ="password" class="form-control" />
+
+                </div>
+
+                <button class="w-100 btn btn-lg btn-primary" style="background-color:steelblue" type="submit">
+
+                    <h6>SIGN IN</h6>
+
+                    
+                </button>
+                <div style="text-align:center">
+         <p></p>
+                    <h4 style="color:dodgerblue">@ViewBag.Message</h4></div>
+                    </br><div>
+            <a asp-action="Register"> <p style="text-align:center">Don't have an account ? </p></a>
+        </div>
+    </form></main></div>
+
+</body>
+</html>

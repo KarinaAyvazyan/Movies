@@ -1,4 +1,5 @@
 ﻿@using Movies.ViewModels.Users;
+@using Movies.Enums
 @model UserViewModel
 @{
     Layout = null;
@@ -16,7 +17,7 @@
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
 
 </head>
-<body>
+<body class="backgroundReg">
 @*
  <h1>@Html.ValidationSummary()</h1>*@
     <div class="col-md-10 mx-auto col-lg-5">
@@ -43,6 +44,11 @@
                         <input asp-for="DOB" class="form-control" />
 
                     </div>*@
+                <div class="form-floating mb-3">
+                    <label asp-for="Status"></label><hr />
+                    <select asp-for="Status" asp-items="Html.GetEnumSelectList<StatusEnum>()" class="form-control">
+                        <option>Please select your status</option>
+                    </select></div>
                     <div class="form-floating mb-3">
                         <label asp-for="Email">Email</label><hr />
                     <input asp-for="Email" class="form-control"  placeholder="name@gmail.com" />
@@ -50,22 +56,36 @@
                     </div>
                 
                 <div class="form-floating mb-3" >
-                        <label asp-for="Password"  >Password</label><hr />
+                        <label asp-for="Password">Password</label><hr />
                     
                         <input asp-for="Password" type="password"  class="form-control" />
              
                         <span asp-validation-for="Password" style="color:red"></span>
 
-
+                @*    @Html.ValidationSummary()</h1>*@
 
            </div>
-        
-           
+              @*  <div class="form-floating mb-3">
+                    <label asp-for="ConfirmPassword"> Confirm Password</label><hr />
+
+                    <input asp-for="ConfirmPassword" type="password" class="form-control" />
+
+                    //<span asp-validation-for="ConfirmPassword" style="color:red"></span>
+
+
+
+                </div>
+           *@
                     
-                    <button class="w-100 btn btn-lg btn-primary" style="background-color:steelblue" type="submit">SIGN UP
+                    <button class="w-100 btn btn-lg btn-primary" style="background-color:steelblue" type="submit">
+              
+                        <h5>SIGN UP</h5>
+       
 
                     </button>
-                   
+                <div style ="text-align:center">
+                    <a asp-action="Login"> <p><h5 style="color:white">Do you have an account ? </h5></p></a>
+                   </div>
                 </form>
         
 

@@ -41,14 +41,18 @@ namespace Movies.Services
         {
 
             var films = _filmRepository.GetAll()
-                .Where(u => model.Title == null || u.Title.ToLower().StartsWith(model.Title.ToLower())
-                && (model.Description ==null|| u.Description.Contains(model.Description)) 
-          
-          ).ToList();   
+                  .Where(u => model.Title == null || u.Title.ToLower().StartsWith(model.Title.ToLower())
+                  && (model.Description!=null || u.Description.Contains(model.Description))
 
-          
-              // && (u.FilmGenre ==model.FilmGenre)))
-           
+            ).ToList();
+
+
+            //if (model.Title != null)
+            //{
+            //    return films.Where(u=>u.Title.ToLower().Contains(model.Title.ToLower())).ToList();
+            //}
+
+      
             return films;
         }
 
@@ -86,7 +90,7 @@ namespace Movies.Services
             entity.DOB = model.DOB;
           
             entity.DirectorId = model.DirectorId;
-         entity.FileName = model.FileName;   
+            entity.FileName = model.FileName;   
       _filmRepository.SaveChanges();
         }
         private void CheckTitle(FilmAddEditViewModel model)

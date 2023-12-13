@@ -16,6 +16,11 @@
         <input asp-for="Description" />
         </label>
 
+        <label asp-for="FilmGenre"></label>
+        <select asp-for="FilmGenre" asp-items="Html.GetEnumSelectList<GenreEnum>()" class="form-control">
+            <option>Please select genre</option>
+        </select>
+
        @* <label>
            Email
         <input asp-for="Email"/>
