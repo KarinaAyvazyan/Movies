@@ -52,17 +52,19 @@
                     <div class="form-floating mb-3">
                         <label asp-for="Email">Email</label><hr />
                     <input asp-for="Email" class="form-control"  placeholder="name@gmail.com" />
-
+         
                     </div>
                 
                 <div class="form-floating mb-3" >
                         <label asp-for="Password">Password</label><hr />
                     
                         <input asp-for="Password" type="password"  class="form-control" />
-             
-                        <span asp-validation-for="Password" style="color:red"></span>
 
-                @*    @Html.ValidationSummary()</h1>*@
+                    <span asp-validation-for="Password" style="color:red"> </span>
+           
+                               
+                   @*// <h1>  @Html.ValidationSummary(Model.Password)</h1>*@
+                
 
            </div>
               @*  <div class="form-floating mb-3">
@@ -79,8 +81,10 @@
                     
                     <button class="w-100 btn btn-lg btn-primary" style="background-color:steelblue" type="submit">
               
-                        <h5>SIGN UP</h5>
-       
+                        
+         
+                    <h5>SIGN UP</h5>
+                    
 
                     </button>
                 <div style ="text-align:center">

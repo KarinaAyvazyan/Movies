@@ -4,6 +4,6 @@ namespace Movies.Data.Repositories.Interfaces
 {
     public interface IAdminRepository
     {
-        public List<Admin> GetAll(int id);  
+        public List<Admin> GetAll();  
     }
 }

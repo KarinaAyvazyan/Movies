@@ -14,7 +14,7 @@ namespace Movies.Data.Repositories
         }
    
 
-        public List<Admin> GetAll(int id)
+        public List<Admin> GetAll()
         {
             return _context.Admins.ToList(); 
         }

@@ -51,28 +51,22 @@ namespace Movies.Controllers
         }
         [HttpPost]
         public IActionResult Register(UserViewModel model)
-        {
+        {       if(ModelState.IsValid)
             if(model.Id==0)
             {
-            
+                _userService.Add(model);
 
-                    _userService.Add(model);
-
-
-
-          //   return View( model);
-
-
+         
+                {
+                    return RedirectToAction("Index","Home");
+                }
+                
             }
-            else
-            {
-                _userService.Update(model); 
-            }
+         return View( model);  
 
+     
 
-
-
-           return RedirectToAction("Index","Home");
+      
 
         }
         }
